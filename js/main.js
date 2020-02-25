@@ -11,11 +11,11 @@ for (var i = 0; i < 16; i++) {
     listaNumeri.push(Math.floor(Math.random() * 100 + 1)); // 1
 }
 console.log(listaNumeri);
-checkList(mioNumero, listaNumeri);
 
 var counter = 0;
-function checkList (mioNumero, myList) {  // 3
-    var counter = counter + 1;
+checkList(mioNumero, listaNumeri, counter);
+function checkList (mioNumero, myList, counter) {  // 3
+    counter = counter + 1;
     if (myList.includes(mioNumero)) {
         console.log('hai perso, il numero è contenuto nella lista. Sei riuscito però ad indovinare: ' + counter +' numeri non presenti!');
         return; //Se il numero è contenuto fine!
