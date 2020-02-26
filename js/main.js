@@ -6,21 +6,22 @@
 
 var listaNumeri = [];
 var mioNumero = parseInt(prompt('Inserisci un numero da 1 a 100'));
+var numeriUtilizzati = [];                            // da completare
+var counter = 0; //contatore init
 
 for (var i = 0; i < 16; i++) {
-    listaNumeri.push(Math.floor(Math.random() * 100 + 1)); // 1
+    listaNumeri.push(Math.floor(Math.random() * 100 + 1));               // Genera numero random da 1 a 100 potevo utilizzare f. generaRandomMinMax
 }
 console.log(listaNumeri);
 
-var counter = 0;
-checkList(mioNumero, listaNumeri, counter);
-function checkList (mioNumero, myList, counter) {  // 3
-    counter = counter + 1;
+checkList(mioNumero, listaNumeri, counter);                          // su questa chiamata va aggiunto il controllo dei numeri già utilizzati dall'utente
+function checkList (mioNumero, myList, counter) {
+    counter = counter + 1;                                         // contatore tentativi
     if (myList.includes(mioNumero)) {
         console.log('hai perso, il numero è contenuto nella lista. Sei riuscito però ad indovinare: ' + counter +' numeri non presenti!');
         return; //Se il numero è contenuto fine!
     } else {
-        var mioNumero = parseInt(prompt('Inserisci un numero da 1 a 100'));
-        return checkList(mioNumero, listaNumeri, counter);
+        mioNumero = parseInt(prompt('Inserisci un numero da 1 a 100'));
+        return checkList(mioNumero, listaNumeri, counter);      // se il numero non è contenuto richiama la funzione aggiornando il contatore dei tentativi
     }
 }
